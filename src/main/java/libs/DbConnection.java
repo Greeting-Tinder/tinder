@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DbConnection {
 
   private static final String url = "jdbc:mysql://localhost:3306/tinder?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-  private static final String username = "hbstudent";
+  private static final String username = "root";
   private static final String pass = "hbstudent";
 
 
