@@ -20,6 +20,25 @@ public class UserDAO implements DAO<User> {
     public UserDAO() {
         users = new ArrayList<>();
         read();
+        //getAllUsers();
+    }
+
+    public List<User> getAllUsers(){
+        users = new LinkedList<>();
+        try {
+            Connection conn = DbConnection.getConnection();
+            final String SQL = "SELECT * FROM users";
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                users.add(new User(resultSet.getInt("id"), resultSet.getString("email"),
+                        resultSet.getString("password"), resultSet.getString("username"),
+                        resultSet.getString("job"), resultSet.getString("imgurl")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
     @Override

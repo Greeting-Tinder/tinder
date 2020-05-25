@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
         loginService = new LoginService();
     }
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         if (!loginService.isLogged()) {
@@ -32,11 +33,14 @@ public class LoginServlet extends HttpServlet {
                     }
                 }
             }
+
             Path path = Paths.get("src/main/resources/templates/login.html");
             ServletOutputStream outputStream = resp.getOutputStream();
             Files.copy(path, outputStream);
         } else
             resp.sendRedirect("/like/");
+
+
     }
 
     @Override
@@ -51,4 +55,6 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect("/login/*");
         }
     }
+
+
 }
