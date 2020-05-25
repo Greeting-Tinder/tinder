@@ -6,7 +6,7 @@ import servlet.*;
 
 public class TinderApp {
     public static void main(String[] args) throws Exception {
-        Server server = new Server(9000);
+        Server server = new Server(Heroku.port());
         ServletContextHandler handler = new ServletContextHandler();
 
         handler.addServlet(new ServletHolder(new HomeServlet()), "/*");
