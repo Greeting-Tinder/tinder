@@ -29,7 +29,7 @@ public class TinderApp {
         handler.addFilter(new FilterHolder(new LoginFilter()), "/like/*", EnumSet.of(DispatcherType.REQUEST));
         server.setHandler(handler);
 
-  //      DbConnection.prepare(url, username, pass);
+        DbConnection.prepare(url, username, pass);
 
 
         server.start();
