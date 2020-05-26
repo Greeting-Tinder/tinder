@@ -9,9 +9,9 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-  private static final String url = "jdbc:postgresql://ec2-52-202-22-140.compute-1.amazonaws.com:5432/d5j53goiqufuts";
-  private static final String username = "wtgcnsjmuhjwcu";
-  private static final String pass = "63246260ebb4709c5fa444c4d6b356ce4d2dd0d964399a9dee00a1a3643e497d";
+  private static final String url = "jdbc:postgresql://ec2-54-86-170-8.compute-1.amazonaws.com:5432/d109e5ptr6dgq6";
+  private static final String username = "nmcohbgcrqlsmq";
+  private static final String pass = "3031cc02c67cbe7864235c7b6eb76021abc5f14116b7a8ed816b5152eebec160";
 
 
   private static Connection connection;
