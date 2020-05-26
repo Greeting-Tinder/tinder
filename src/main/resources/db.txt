@@ -1,0 +1,39 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id int NOT NULL GENERATED ALWAYS AS identity ,
+  email varchar(50) NOT NULL,
+  password varchar(50) NOT NULL,
+  username varchar(250) DEFAULT NULL,
+  job varchar(45) DEFAULT NULL,
+  imgurl text,
+  PRIMARY KEY (id),
+  UNIQUE (email)
+);
+
+
+CREATE TABLE likes (
+  id int NOT NULL GENERATED ALWAYS AS identity,
+  user_likes int DEFAULT NULL,
+  user_liked int DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+
+CREATE TABLE message (
+  id int NOT NULL GENERATED ALWAYS AS identity,
+  user_to int DEFAULT NULL,
+  user_from int DEFAULT NULL,
+  message text,
+  localId int DEFAULT NULL,
+  dateTime text,
+  PRIMARY KEY (id)
+) ;
+
+INSERT INTO users(email, password, username, job, imgurl) VALUES ('timur@tinder.com','123','Timur','Python','https://robohash.org/24.218.243.24.png'),
+('jalil@tinder.com','123','Jalil','Java','https://robohash.org/24.218.243.23.png'),
+('alik@tinder.com','123','Alik','C#','https://robohash.org/24.218.243.25.png'),
+('jim@tinder.com','123','Jim','Js','https://robohash.org/24.218.243.26.png'),
+('jeremy@tinder.com','123','Jeremy','C++','https://robohash.org/24.218.243.27.png'),
+('john@tinder.com','123','John','Kotlin','https://robohash.org/24.218.243.28.png');
+
