@@ -22,6 +22,7 @@ public class TinderApp {
         handler.addServlet(new ServletHolder(new MessagesServlet()), "/messages/*");
         handler.addFilter(new FilterHolder(new LoginFilter()), "/like/*", EnumSet.of(DispatcherType.REQUEST));
         server.setHandler(handler);
+        
         server.start();
         server.join();
     }
