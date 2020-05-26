@@ -31,6 +31,7 @@ public class TinderApp {
 
         DbConnection.prepare(url, username, pass);
 
+        
         server.start();
         server.join();
     }
