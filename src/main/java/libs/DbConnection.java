@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-  private static final String url = "postgres://bchwpemrhwwufm:75f038385dc4da2afbe7a4d269c30bebe5768f71bf2df7f4d90b8b0a326fb529@ec2-3-215-83-17.compute-1.amazonaws.com:5432/d6ktia2iehkj63";
+  private static final String url = "jdbc:postgres://ec2-3-215-83-17.compute-1.amazonaws.com:5432/d6ktia2iehkj63";
   private static final String username = "bchwpemrhwwufm";
   private static final String pass = "75f038385dc4da2afbe7a4d269c30bebe5768f71bf2df7f4d90b8b0a326fb529";
 
@@ -17,7 +17,6 @@ public class DbConnection {
   private static Connection connection;
 
   private DbConnection() {}
-  
 
   public static Connection getConnection() {
     if (connection == null) {
