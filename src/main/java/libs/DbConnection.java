@@ -9,14 +9,15 @@ import java.sql.SQLException;
 
 public class DbConnection {
 
-  private static final String url = "jdbc:postgresql://ec2-54-86-170-8.compute-1.amazonaws.com:5432/d109e5ptr6dgq6";
-  private static final String username = "nmcohbgcrqlsmq";
-  private static final String pass = "3031cc02c67cbe7864235c7b6eb76021abc5f14116b7a8ed816b5152eebec160";
+  private static final String url = "postgres://bchwpemrhwwufm:75f038385dc4da2afbe7a4d269c30bebe5768f71bf2df7f4d90b8b0a326fb529@ec2-3-215-83-17.compute-1.amazonaws.com:5432/d6ktia2iehkj63";
+  private static final String username = "bchwpemrhwwufm";
+  private static final String pass = "75f038385dc4da2afbe7a4d269c30bebe5768f71bf2df7f4d90b8b0a326fb529";
 
 
   private static Connection connection;
 
   private DbConnection() {}
+  
 
   public static Connection getConnection() {
     if (connection == null) {
