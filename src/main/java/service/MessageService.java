@@ -72,7 +72,7 @@ public class MessageService {
                     if (oneMessage.getUserTo() == receiver && oneMessage.getUserFrom() == sender)
                         return senderMessage(oneMessage);
                     else
-                        return receiverMessage(oneMessage, receiverUser.getImgURL());
+                        return receiverMessage(oneMessage, receiverUser.getImgurl());
                 }).collect(Collectors.toList());
     }
 }

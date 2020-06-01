@@ -22,17 +22,10 @@ public class User {
         this.password = password;
     }
 
-
-    public String getImgURL() {
-        return imgurl;
-    }
-
-
     public boolean checkEqual(User user)
     {
         return email.equals(user.getEmail()) &&
                 password.equals(user.getPassword());
     }
-
 
 }

@@ -36,7 +36,7 @@ public class LikeServlet extends HttpServlet {
         data.put("id", user.getId());
         data.put("name", user.getUsername());
         data.put("job", user.getJob());
-        data.put("imgURL", user.getImgURL());
+        data.put("imgurl", user.getImgurl());
         engine.render("like-page.ftl", data, resp);
     }
 
