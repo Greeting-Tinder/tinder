@@ -1,7 +1,12 @@
 package entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Objects;
 
+@Data
+@AllArgsConstructor
 public class Like {
     private int id;
     private int user_likes;
@@ -11,22 +16,7 @@ public class Like {
         this.user_likes = user_likes;
         this.user_liked = user_liked;
     }
-    public Like(int id, int user_likes, int user_liked) {
-        this.id = id;
-        this.user_likes = user_likes;
-        this.user_liked = user_liked;
-    }
-    public int getUser_likes() {
-        return user_likes;
-    }
 
-    public int getUser_liked() {
-        return user_liked;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -37,16 +27,12 @@ public class Like {
                 user_liked == like.user_liked;
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(user_likes, user_liked);
     }
 
-    @Override
-    public String toString() {
-        return "Like{" +
-                "user_like=" + user_likes +
-                ", user_liked=" + user_liked +
-                '}';
-    }
+
 }
