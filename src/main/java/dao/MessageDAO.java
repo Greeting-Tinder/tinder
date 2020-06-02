@@ -2,6 +2,8 @@ package dao;
 
 import entity.Message;
 import libs.DbConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MessageDAO implements DAO<Message> {
+
+    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private List<Message> messages;
 
     public MessageDAO() {
@@ -38,7 +42,7 @@ public class MessageDAO implements DAO<Message> {
                         resultSet.getInt("localId"),
                         resultSet.getString("dateTime")));
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 
@@ -76,7 +80,7 @@ public class MessageDAO implements DAO<Message> {
             insertMessage.executeUpdate();
             messages.add(message);
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 

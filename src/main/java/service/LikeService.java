@@ -4,12 +4,16 @@ import dao.LikesDAO;
 import dao.UserDAO;
 import entity.Like;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LikeService {
+
+
     private UserDAO users;
     private LikesDAO likes;
     private List<Integer> userIds;

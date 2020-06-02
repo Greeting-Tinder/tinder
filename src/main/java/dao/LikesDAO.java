@@ -2,6 +2,9 @@ package dao;
 
 import entity.Like;
 import libs.DbConnection;
+import libs.TemplateEngine;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +17,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LikesDAO implements DAO<Like> {
+
+    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private List<Like> likes;
 
     public LikesDAO() {
@@ -36,7 +41,7 @@ public class LikesDAO implements DAO<Like> {
                         resultSet.getInt("user_liked")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 
@@ -63,7 +68,7 @@ public class LikesDAO implements DAO<Like> {
             insertLikes.executeUpdate();
             likes.add(like);
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 

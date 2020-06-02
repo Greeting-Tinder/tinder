@@ -2,6 +2,8 @@ package dao;
 
 import entity.User;
 import libs.DbConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class UserDAO implements DAO<User> {
+
+    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private List<User> users;
 
     public UserDAO() {
@@ -37,7 +41,7 @@ public class UserDAO implements DAO<User> {
                         resultSet.getString("job"), resultSet.getString("imgurl")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 
@@ -75,7 +79,7 @@ public class UserDAO implements DAO<User> {
             insertUser.executeUpdate();
             users.add(user);
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 
