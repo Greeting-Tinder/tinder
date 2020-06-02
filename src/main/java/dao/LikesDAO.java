@@ -18,11 +18,11 @@ public class LikesDAO implements DAO<Like> {
 
     public LikesDAO() {
         likes = new LinkedList<>();
-        read();
+        getAll();
     }
 
     @Override
-    public void read() {
+    public void getAll() {
         likes = new LinkedList<>();
         try {
             Connection conn = DbConnection.getConnection();

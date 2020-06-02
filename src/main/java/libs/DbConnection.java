@@ -29,15 +29,15 @@ public class DbConnection {
     }
     return connection;
   }
-//
-//  public static void prepare(String uri, String user, String password){
-//    prepare(uri, user, password, true);
-//  }
-//  static void prepare(String uri, String user, String password, boolean clear) {
-//    FluentConfiguration config = new FluentConfiguration()
-//            .dataSource(uri, user, password);
-//    Flyway flyway = new Flyway(config);
-//    if (clear) flyway.clean();
-//    flyway.migrate();
-//  }
+
+    public static void prepare(){
+        prepare(url, username, pass, true);
+    }
+    static void prepare(String uri, String user, String password, boolean clear) {
+        FluentConfiguration config = new FluentConfiguration()
+           .dataSource(uri, user, password);
+        Flyway flyway = new Flyway(config);
+        if (clear) flyway.clean();
+        flyway.migrate();
+  }
 }

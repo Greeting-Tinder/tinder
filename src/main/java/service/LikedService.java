@@ -25,7 +25,7 @@ public class LikedService {
     }
 
     public List<Like> getLikedUserIds(int localId) {
-        likesDao.read();
+        likesDao.getAll();
         return likesDao.stream()
                 .filter(oneLike -> oneLike.getUser_likes() == localId)
                 .collect(Collectors.toList());

@@ -18,11 +18,11 @@ public class MessageDAO implements DAO<Message> {
     private List<Message> messages;
 
     public MessageDAO() {
-        read();
+        getAll();
     }
 
     @Override
-    public void read() {
+    public void getAll() {
         messages = new ArrayList<>();
         try {
             Connection conn = DbConnection.getConnection();

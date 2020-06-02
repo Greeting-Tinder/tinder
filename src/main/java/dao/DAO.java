@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public interface DAO<T> extends Iterable<T> {
 
-    void read() throws SQLException;
+    void getAll() throws SQLException;
 
     List<T> getDatabase();
 

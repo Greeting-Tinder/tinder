@@ -64,7 +64,7 @@ public class MessageService {
     }
 
     public List<String> getFormattedMessages(int sender, int receiver) {
-        this.messages.read();
+        this.messages.getAll();
         User receiverUser = users.get(receiver);
         List<Message> messages = getMessages(sender, receiver);
         return messages.stream()
