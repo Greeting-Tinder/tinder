@@ -27,6 +27,7 @@ public final class TemplateEngine {
             setLogTemplateExceptions(false);
             setWrapUncheckedExceptions(true);
         }};
+
     }
 
     public void render(final String templateFile, final HttpServletResponse resp) throws IOException {
