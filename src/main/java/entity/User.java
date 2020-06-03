@@ -19,6 +19,13 @@ public class User {
         this.password = password;
     }
 
+    public User(String email, String password, String username, String job) {
+        this.email=email;
+        this.password=password;
+        this.username=username;
+        this.job=job;
+    }
+
     public boolean checkEqual(User user)
     {
         return email.equals(user.getEmail()) &&

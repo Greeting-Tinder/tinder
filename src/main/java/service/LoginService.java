@@ -3,6 +3,7 @@ package service;
 import dao.LikesDAO;
 import dao.UserDAO;
 import entity.User;
+import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,16 +17,15 @@ public class LoginService {
         users = new UserDAO();
     }
 
-    public int check(User user) throws Exception {
+    @SneakyThrows
+    public int check(User user){
             for (User us : users) {
                 if (us.checkEqual(user)) {
                     isLogged = true;
                     return us.getId();
                 }
-
             }
-
-            throw new Exception("Login failed");
+        throw new Exception("Login failed");
     }
 
     public boolean isLogged() {

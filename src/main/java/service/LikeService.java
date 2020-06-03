@@ -4,6 +4,7 @@ import dao.LikesDAO;
 import dao.UserDAO;
 import entity.Like;
 import entity.User;
+import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -54,6 +55,7 @@ public class LikeService {
     public boolean isLiked() {
         return liked;
     }
+
 
     public User getNext(int user_liked) throws RuntimeException {
         userIds.remove(Integer.valueOf(user_liked));
