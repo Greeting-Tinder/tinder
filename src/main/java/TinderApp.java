@@ -28,7 +28,6 @@ public class TinderApp {
         handler.addFilter(new FilterHolder(new LoginFilter()), "/like/*", EnumSet.of(DispatcherType.REQUEST));
         server.setHandler(handler);
 
-
         server.start();
         server.join();
     }
