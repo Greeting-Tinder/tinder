@@ -6,6 +6,3 @@ create table likes
     user_likes integer,
     user_liked integer
 );
-
-alter table likes
-    owner to bchwpemrhwwufm;

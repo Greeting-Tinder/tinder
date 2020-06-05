@@ -9,6 +9,3 @@ create table message
     localid   integer,
     datetime  text
 );
-
-alter table message
-    owner to bchwpemrhwwufm;

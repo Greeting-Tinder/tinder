@@ -28,7 +28,7 @@ public class UserDAO implements DAO<User> {
 
     @Override
     public void getAll() {
-        //users = new LinkedList<>();
+        users = new LinkedList<>();
         try {
             Connection conn = DbConnection.getConnection();
             final String SQL = "SELECT * FROM users";
@@ -69,19 +69,13 @@ public class UserDAO implements DAO<User> {
             insertUser.setString(2, user.getPassword());
             insertUser.setString(3, user.getUsername());
             insertUser.setString(4, user.getJob());
-            //if (user.getImgurl().equals(""))
             insertUser.setString(5, "https://robohash.org/24.218.243.26.png");
-            //else
-            //   insertUser.setString(5, user.getImgurl());
 
-            System.out.println(insertUser.executeUpdate());
+            insertUser.executeUpdate();
             users = new ArrayList<>();
             getAll();
-            for (User u : users) {
-                System.out.println(u);
-            }
-//            conn.commit();
-            conn.close();
+
+
         } catch (SQLException e) {
             LOG.error("Can't connect to database " + e);
         } catch (Exception e) {
