@@ -20,7 +20,6 @@ public class LoginService {
     @SneakyThrows
     public int check(User user){
             for (User us : users) {
-                System.out.println(us);
                 if (us.checkEqual(user)) {
                     isLogged = true;
                     return us.getId();
