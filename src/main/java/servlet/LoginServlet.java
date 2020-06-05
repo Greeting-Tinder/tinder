@@ -28,17 +28,18 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (!loginService.isLogged()) {
-            Cookie[] cookies = req.getCookies();
-            if (cookies != null) {
-                for (Cookie oneCookie : cookies) {
-                    if (oneCookie.getName().equals("%ID%")) {
-                        oneCookie.setMaxAge(0);
-                        resp.addCookie(oneCookie);
-                    }
+
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null) {
+            for (Cookie oneCookie : cookies) {
+                if (oneCookie.getName().equals("%ID%")) {
+                    oneCookie.setMaxAge(0);
+                    //resp.addCookie(oneCookie);
                 }
             }
+        }
 
+        if (!loginService.isLogged()) {
             Path path = Paths.get("src/main/resources/templates/login.html");
             ServletOutputStream outputStream = resp.getOutputStream();
             Files.copy(path, outputStream);
