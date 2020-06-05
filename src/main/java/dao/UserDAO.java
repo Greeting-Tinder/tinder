@@ -2,6 +2,8 @@ package dao;
 
 import entity.User;
 import libs.DbConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,34 +17,18 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class UserDAO implements DAO<User> {
+
+    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private List<User> users;
 
     public UserDAO() {
         users = new ArrayList<>();
-        read();
-        //getAllUsers();
-    }
+        getAll();
 
-    public List<User> getAllUsers(){
-        users = new LinkedList<>();
-        try {
-            Connection conn = DbConnection.getConnection();
-            final String SQL = "SELECT * FROM users";
-            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                users.add(new User(resultSet.getInt("id"), resultSet.getString("email"),
-                        resultSet.getString("password"), resultSet.getString("username"),
-                        resultSet.getString("job"), resultSet.getString("imgurl")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return users;
     }
 
     @Override
-    public void read() {
+    public void getAll() {
         users = new LinkedList<>();
         try {
             Connection conn = DbConnection.getConnection();
@@ -55,7 +41,7 @@ public class UserDAO implements DAO<User> {
                         resultSet.getString("job"), resultSet.getString("imgurl")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 
@@ -67,7 +53,7 @@ public class UserDAO implements DAO<User> {
 
     @Override
     public List<Integer> getAllId() {
-        read();
+        getAll();
         List<Integer> result = new LinkedList<>();
         users.forEach(user -> result.add(user.getId()));
         return result;
@@ -84,16 +70,16 @@ public class UserDAO implements DAO<User> {
             insertUser.setString(2, user.getPassword());
             insertUser.setString(3, user.getUsername());
             insertUser.setString(4, user.getJob());
-            if (user.getImgURL().equals(""))
+            if (user.getImgurl().equals(""))
                 insertUser.setString(5, "https://robohash.org/24.218.243.26.png");
             else
-                insertUser.setString(5, user.getImgURL());
+                insertUser.setString(5, user.getImgurl());
 
 
             insertUser.executeUpdate();
             users.add(user);
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOG.error("Can't connect to database " + e);
         }
     }
 

@@ -1,12 +1,15 @@
 package dao;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Stream;
 
 public interface DAO<T> extends Iterable<T> {
 
-    void read() throws SQLException;
+    void getAll() throws SQLException;
 
     List<T> getDatabase();
 

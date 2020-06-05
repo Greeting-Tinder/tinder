@@ -1,7 +1,10 @@
 package servlet;
 
+import dao.LikesDAO;
 import entity.User;
 import libs.TemplateEngine;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import service.LikeService;
 
 import javax.servlet.http.Cookie;
@@ -12,6 +15,8 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class LikeServlet extends HttpServlet {
+
+    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private LikeService service;
     private User user;
 
@@ -36,7 +41,7 @@ public class LikeServlet extends HttpServlet {
         data.put("id", user.getId());
         data.put("name", user.getUsername());
         data.put("job", user.getJob());
-        data.put("imgURL", user.getImgURL());
+        data.put("imgurl", user.getImgurl());
         engine.render("like-page.ftl", data, resp);
     }
 
@@ -49,6 +54,7 @@ public class LikeServlet extends HttpServlet {
             user = service.getNext(user.getId());
             resp.sendRedirect("/like/");
         } catch (RuntimeException ex) {
+            LOG.info("Redirected to liked");
             resp.sendRedirect("/liked/");
         }
     }

@@ -64,7 +64,7 @@ public class MessageService {
     }
 
     public List<String> getFormattedMessages(int sender, int receiver) {
-        this.messages.read();
+        this.messages.getAll();
         User receiverUser = users.get(receiver);
         List<Message> messages = getMessages(sender, receiver);
         return messages.stream()
@@ -72,7 +72,7 @@ public class MessageService {
                     if (oneMessage.getUserTo() == receiver && oneMessage.getUserFrom() == sender)
                         return senderMessage(oneMessage);
                     else
-                        return receiverMessage(oneMessage, receiverUser.getImgURL());
+                        return receiverMessage(oneMessage, receiverUser.getImgurl());
                 }).collect(Collectors.toList());
     }
 }

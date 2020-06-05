@@ -1,6 +1,9 @@
 package servlet;
 
+import dao.LikesDAO;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import service.LoginService;
 
 import javax.servlet.ServletOutputStream;
@@ -14,6 +17,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class LoginServlet extends HttpServlet {
+
+    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private LoginService loginService;
 
     public LoginServlet() {
@@ -52,6 +57,8 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(new Cookie("%ID%", String.valueOf(id)));
             resp.sendRedirect("/like/*");
         } catch (Exception ex) {
+            LOG.warn("Login error " + ex);
+            LOG.info("Redirecting to login");
             resp.sendRedirect("/login/*");
         }
     }

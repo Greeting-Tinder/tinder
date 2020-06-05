@@ -32,7 +32,7 @@
                                 <tr>
                                     <td width="10">
                                         <div class="avatar-img">
-                                            <img width="50" style="height:auto" src="${people.imgURL}"/>  
+                                            <img width="50" style="height:auto" src="${people.imgurl}"/>  
                                         </div>
                                     </td>
                                     <td class="align-middle">
