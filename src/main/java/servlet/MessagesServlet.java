@@ -46,8 +46,9 @@ public class MessagesServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String message = req.getParameter("message");
-        service.write(senderId, receiverId, message);
-        resp.sendRedirect(String.format("/messages/%d", receiverId));
+                String message = req.getParameter("message");
+                service.write(senderId, receiverId, message);
+                resp.sendRedirect(String.format("/messages/%d", receiverId));
+
     }
 }

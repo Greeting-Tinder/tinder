@@ -49,6 +49,10 @@
                     </form>
                 </div>
 
+                <form method="get" action="/LogoutServlet">
+                    <button name="logout" type="submit">Log out</button>
+                </form>
+
                 <!--/col-->
             </div>
             <!--/row-->

@@ -75,6 +75,10 @@
                                 </label>
                                 <button type="submit" class="btn btn-primary" name="send"><span>Send</span></button>
                             </form>
+
+                            <form method="get" action="/LogoutServlet">
+                                <button name="logout" type="submit">Log out</button>
+                            </form>
                         </div>
                         <div class="col-md-3 text-right options-right">
                             <i class="fa fa-picture-o mr-2"></i>
