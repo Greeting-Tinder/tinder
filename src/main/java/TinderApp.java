@@ -13,7 +13,7 @@ import java.util.EnumSet;
 public class TinderApp {
     public static void main(String[] args) throws Exception {
 
-        DbConnection.prepare();
+        //DbConnection.prepare();
 
         Server server = new Server(Heroku.port());
         ServletContextHandler handler = new ServletContextHandler();
