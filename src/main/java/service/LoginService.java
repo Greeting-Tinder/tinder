@@ -1,15 +1,11 @@
 package service;
 
-import dao.LikesDAO;
 import dao.UserDAO;
 import entity.User;
 import lombok.SneakyThrows;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class LoginService {
 
-    private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private UserDAO users;
     private static boolean isLogged;
     public LoginService() {
