@@ -9,3 +9,4 @@ create table message
     localid   integer,
     datetime  text
 );
+

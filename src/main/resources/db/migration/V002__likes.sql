@@ -6,3 +6,4 @@ create table likes
     user_likes integer,
     user_liked integer
 );
+
