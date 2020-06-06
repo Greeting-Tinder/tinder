@@ -1,7 +1,5 @@
 package dao;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 import java.util.List;
