@@ -15,6 +15,11 @@ public class DbConnection {
 
     private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
 
+    /*private static final String url = "jdbc:postgresql://ec2-34-194-198-176.compute-1.amazonaws.com:5432/d3ptkqd1pikd7a";
+    private static final String username = "kpzzwsvipkolxa";
+    private static final String pass = "9266dd2802769122e2c224c777ae7fc930f14190e57c7855dad4d6c145060695";
+*/
+
     private static final String url = "JDBC_URL";
     private static final String username = "JDBC_USER";
     private static final String pass = "JDBC_PASS";
