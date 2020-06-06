@@ -18,7 +18,6 @@ public class User {
         this.email = username;
         this.password = password;
     }
-
     public User(String email, String password, String username, String job) {
         this.email=email;
         this.password=password;
@@ -31,5 +30,4 @@ public class User {
         return email.equals(user.getEmail()) &&
                 password.equals(user.getPassword());
     }
-
 }

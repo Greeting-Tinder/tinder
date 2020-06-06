@@ -17,7 +17,6 @@ public class Like {
         this.user_liked = user_liked;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,8 +25,6 @@ public class Like {
         return user_likes == like.user_likes &&
                 user_liked == like.user_liked;
     }
-
-
 
     @Override
     public int hashCode() {

@@ -22,6 +22,4 @@ public class Message {
         this.localId = localId;
         this.dateTime = dateTime;
     }
-
-
 }
