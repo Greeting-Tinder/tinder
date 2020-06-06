@@ -5,3 +5,7 @@
 
 # `*.iml` files in all sub-directories
 **/*.iml
+
+/mvnw/*
+
+/mvnw.cmd/*
