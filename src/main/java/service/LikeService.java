@@ -67,6 +67,7 @@ public class LikeService {
         return null;
     }
 
+
     public void setLocalId(int id) {
         this.id = id;
     }
