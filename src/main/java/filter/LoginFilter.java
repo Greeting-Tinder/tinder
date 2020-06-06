@@ -37,6 +37,7 @@ public class LoginFilter implements Filter {
     }
     else {
       HttpServletResponse httpServletResponse  = (HttpServletResponse) response;
+      //manual
       LoginService.setLogged(false);
       httpServletResponse.sendRedirect ("/login");
     }
