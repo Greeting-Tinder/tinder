@@ -31,5 +31,4 @@ public class Like {
         return Objects.hash(user_likes, user_liked);
     }
 
-
 }
