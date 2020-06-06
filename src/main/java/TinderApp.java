@@ -16,6 +16,7 @@ public class TinderApp {
         DbConnection.prepare();
 
         Server server = new Server(Heroku.port());
+
         ServletContextHandler handler = new ServletContextHandler();
 
         handler.addServlet(new ServletHolder(new HomeServlet()), "/*");
