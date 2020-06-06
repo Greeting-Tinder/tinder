@@ -2,19 +2,18 @@ package servlet;
 
 import dao.LikesDAO;
 import entity.User;
+import libs.TemplateEngine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import service.LoginService;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 public class LoginServlet extends HttpServlet {
 
@@ -28,22 +27,13 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        if (!loginService.isLogged()) {
-            Cookie[] cookies = req.getCookies();
-            if (cookies != null) {
-                for (Cookie oneCookie : cookies) {
-                    if (oneCookie.getName().equals("%ID%")) {
-                        oneCookie.setMaxAge(0);
-                        resp.addCookie(oneCookie);
-                    }
-                }
-            }
 
-            Path path = Paths.get("src/main/resources/templates/login.html");
-            ServletOutputStream outputStream = resp.getOutputStream();
-            Files.copy(path, outputStream);
-        } else
+        if (!loginService.isLogged()) {
+            TemplateEngine engine = new TemplateEngine("src/main/resources/templates");
+            engine.render("login.ftl", resp);
+        } else {
             resp.sendRedirect("/like/");
+        }
 
 
     }
@@ -54,12 +44,14 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         try {
             int id = loginService.check(new User(login, password));
-            resp.addCookie(new Cookie("%ID%", String.valueOf(id)));
-            resp.sendRedirect("/like/*");
+            Cookie c = new Cookie("%ID%", String.valueOf(id));
+            c.setMaxAge(60 * 60 * 24 * 7);
+            resp.addCookie(c);
+            resp.sendRedirect("/like/");
         } catch (Exception ex) {
             LOG.warn("Login error " + ex);
             LOG.info("Redirecting to login");
-            resp.sendRedirect("/login/*");
+            resp.sendRedirect("/login");
         }
     }
 

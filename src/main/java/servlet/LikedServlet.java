@@ -26,6 +26,7 @@ public class LikedServlet extends HttpServlet {
         for (Cookie oneCookie : cookies) {
             if (oneCookie.getName().equals("%ID%"))
                 localId = Integer.parseInt(oneCookie.getValue());
+
         }
 
         List<User> likedUsers = service.getLikedUsers(localId);

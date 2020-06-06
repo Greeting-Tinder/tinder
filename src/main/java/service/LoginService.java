@@ -11,7 +11,7 @@ public class LoginService {
 
     private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
     private UserDAO users;
-    private boolean isLogged;
+    private static boolean isLogged;
     public LoginService() {
         isLogged = false;
         users = new UserDAO();
@@ -30,5 +30,9 @@ public class LoginService {
 
     public boolean isLogged() {
         return isLogged;
+    }
+
+    public static void setLogged(boolean logged) {
+        LoginService.isLogged = logged;
     }
 }

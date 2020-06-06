@@ -10,5 +10,3 @@ create table message
     datetime  text
 );
 
-alter table message
-    owner to bchwpemrhwwufm;

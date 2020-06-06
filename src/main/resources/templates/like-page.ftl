@@ -49,13 +49,22 @@
                     </form>
                 </div>
 
+
+
                 <!--/col-->
             </div>
             <!--/row-->
         </div>
         <!--/card-block-->
     </div>
+    <div class="wrapper">
+        <form method="get" action="/LogoutServlet">
+            <button class="btn btn-info" name="logout" type="submit">Log out</button>
+        </form>
+    </div>
 </div>
+
+
 
 </body>
 </html>

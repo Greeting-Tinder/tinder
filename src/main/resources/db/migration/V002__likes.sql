@@ -7,5 +7,3 @@ create table likes
     user_liked integer
 );
 
-alter table likes
-    owner to bchwpemrhwwufm;

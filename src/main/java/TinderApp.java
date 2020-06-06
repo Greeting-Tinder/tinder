@@ -16,6 +16,7 @@ public class TinderApp {
         DbConnection.prepare();
 
         Server server = new Server(Heroku.port());
+
         ServletContextHandler handler = new ServletContextHandler();
 
         handler.addServlet(new ServletHolder(new HomeServlet()), "/*");
@@ -23,8 +24,8 @@ public class TinderApp {
         handler.addServlet(new ServletHolder(new LoginServlet()), "/login/*");
         handler.addServlet(new ServletHolder(new LikeServlet()), "/like/*");
         handler.addServlet(new ServletHolder(new LikedServlet()), "/liked/*");
+        handler.addServlet(new ServletHolder(new LogoutServlet()), "/LogoutServlet");
         handler.addServlet(new ServletHolder(new MessagesServlet()), "/messages/*");
-        handler.addServlet(new ServletHolder(new RegisterServlet()), "/register/*");
         handler.addFilter(new FilterHolder(new LoginFilter()), "/like/*", EnumSet.of(DispatcherType.REQUEST));
         server.setHandler(handler);
 

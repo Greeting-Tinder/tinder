@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 public class LikesDAO implements DAO<Like> {
 
     private static final Logger LOG = LogManager.getFormatterLogger(LikesDAO.class);
+
     private List<Like> likes;
 
     public LikesDAO() {

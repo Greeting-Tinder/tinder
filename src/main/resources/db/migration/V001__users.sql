@@ -22,5 +22,3 @@ INSERT INTO users(email, password, username, job, imgurl) VALUES
 ('jeremy@tinder.com','123','Jeremy','C++','https://robohash.org/24.218.243.27.png'),
 ('john@tinder.com','123','John','Kotlin','https://robohash.org/24.218.243.28.png');
 
-alter table users
-    owner to bchwpemrhwwufm;

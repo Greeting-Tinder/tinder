@@ -24,7 +24,6 @@ public class UserDAO implements DAO<User> {
     public UserDAO() {
         users = new ArrayList<>();
         getAll();
-
     }
 
     @Override
@@ -70,16 +69,17 @@ public class UserDAO implements DAO<User> {
             insertUser.setString(2, user.getPassword());
             insertUser.setString(3, user.getUsername());
             insertUser.setString(4, user.getJob());
-            if (user.getImgurl().equals(""))
-                insertUser.setString(5, "https://robohash.org/24.218.243.26.png");
-            else
-                insertUser.setString(5, user.getImgurl());
-
+            insertUser.setString(5, "https://robohash.org/24.218.243.26.png");
 
             insertUser.executeUpdate();
-            users.add(user);
+            users = new ArrayList<>();
+            getAll();
+
+
         } catch (SQLException e) {
             LOG.error("Can't connect to database " + e);
+        } catch (Exception e) {
+            LOG.error(e.getMessage());
         }
     }
 

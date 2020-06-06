@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 
 public class MessageService {
+
     private MessageDAO messages;
     private UserDAO users;
 
